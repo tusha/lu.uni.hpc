@@ -1,0 +1,43 @@
+<script src="{{ root_url }}/javascripts/md5.js" type="text/javascript"> </script>
+
+<script type="text/javascript">
+ 
+ $(document).ready(function(){
+ 	
+ 	var c=false;
+ 	var tmp_name;
+ 	var tmp_pass;
+ 	
+	$("#sbmtBtn").click(function(){
+	 
+		tmp_name=$('#name').val().trim().toString();
+	 	tmp_pass=CryptoJS.MD5($('#pass').val().trim().toString());//CryptoJS.MD5($('#pass').val());	
+	    
+	    
+	    var str="login "+ tmp_name+ ","+ tmp_pass;
+	    var r="<script type='text/javascript'>\{\% "+str+ " \%\}</"+"script>";
+	    alert(r);
+	    $("#login").append(r);
+		
+		
+	 	
+	});
+	
+	
+	
+});
+</script>
+
+<form id="submitForm">
+  <label>Username</label>
+  <input type="text" name="name" id="name" value="Enter username"/>
+  <label>Password</label>
+  <input type="password" name="pass" id="pass" value="" />
+  <p><input type="button" id="sbmtBtn" value="Submit"/></p>
+</form>
+
+
+
+<div id="login"><!--style="display:none" -->
+	
+</div>

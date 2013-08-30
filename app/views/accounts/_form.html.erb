@@ -1,0 +1,43 @@
+<%= javascript_include_tag '/assets/bootstrap/js/bootstrap-fileupload.js' %>
+<%= stylesheet_link_tag '/assets/bootstrap/css/bootstrap-fileupload.css' %>
+<div class="fileupload fileupload-new" data-provides="fileupload">
+<%= form_for(@account) do |f| %>
+  <% if @account.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@account.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @account.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <fieldset>
+  	<%=f.hidden_field :user_id, :value => current_user.id%>
+   <label>Script title</label>
+    <%= f.text_field :script_name%> </br>
+    
+ <%if @account.script_url == nil%>
+    <%= f.file_field :script%>
+    <label>Comment</label>
+    <%=f.text_area :comment%>
+  </div> 
+  <div class="actions">
+    <%= f.submit "Upload", :class=>'btn'%>
+  </div>
+<%else%>
+	<div id="script_view"><%=@account.script.html_safe%></div>
+  	<label>Comment</label>
+    <%=f.text_area :comment%>
+  </div> 
+  <div class="actions">
+    <%= f.submit "Change", :class=>'btn'%> 
+   <%= link_to 'Delete script', @account, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn'%>
+  </div>
+<% end %>
+</fieldset>
+<%end%>
+</div>
+
+

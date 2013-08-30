@@ -1,0 +1,52 @@
+<%= render 'shared/profile_menu' %>
+<h3>Current jobs</h3>
+
+<table class="table table-striped table-bordered table-condensed ">
+  <thead>
+    <tr>
+      <th>Name</th>     
+      <th>Script</th>
+      <th>Tokens involved</th>
+      <th>Optional params</th>
+      <th>Output</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @jobs.each do |job| %>
+      <tr>
+        <td><%= job.name %></td>      
+        <td><a href=<%=edit_account_path(current_user.id)%>><%=@script %></a></td>
+    <td>  
+    <table class="table table-bordered">
+    <th>Quality</th>
+    <th>Generation num</th>
+    <th>Transformation num</th>
+    <th>Kind</th>
+    <th>Amount</th>
+    <% get_job_tokens(job.id)
+    @job_tokens.each do |tt|%>
+    <tr>
+    <td><%=tt[0]%></td>
+    <td><%=tt[1]%></td>
+    <td><%=tt[2]%></td>
+    <td><%=tt[3]%></td>
+    <td><%=tt[4]%></td>    
+    </tr>
+    <%end%>
+    </table>   
+  </td>
+        <td><%= job.optional_params %></td>
+        <td><%= job.output_id %></td>    
+        <td><%= link_to 'Edit', edit_job_path(job) %></td>
+        <td><%= link_to 'Delete', job, method: :delete, data: { confirm: 'Are you sure? Tokens assigned for the job WILL NOT be renewed' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Job', new_job_path %>

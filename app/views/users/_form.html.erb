@@ -1,0 +1,65 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :firstname %><br>
+    <%= f.text_field :firstname %>
+  </div>
+  <div class="field">
+    <%= f.label :lastname %><br>
+    <%= f.text_field :lastname %>
+  </div>
+  <div class="field">
+    <%= f.label :username %><br>
+    <%= f.text_field :username %>
+  </div>
+  <div class="field">
+    <%= f.label :kind %><br>
+    <%= f.text_field :kind %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :phonenumber %><br>
+    <%= f.text_field :phonenumber %>
+  </div>
+  <div class="field">
+    <%= f.label :mobile %><br>
+    <%= f.text_field :mobile %>
+  </div>  
+  <div class="field">
+    <%= f.label :id_account %><br>
+    <%= f.number_field :id_account %>
+  </div>
+  <div class="field">
+    <%= f.label :secretquestion %><br>
+    <%= f.text_field :secretquestion %>
+  </div>
+  <div class="field">
+    <%= f.label :secretanswer %><br>
+    <%= f.text_field :secretanswer %>
+  </div>
+  <div class="field">
+    <%= f.label :password, f.object.new_record? ? nil : "Change password" %><br />
+    <%= f.password_field :password%><br />
+  <br />
+  <%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation %><br />
+</div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>

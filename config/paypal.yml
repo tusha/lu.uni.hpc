@@ -1,0 +1,29 @@
+test: &default
+
+  # Credentials for REST APIs doesn't work for Europe just for USA
+  client_id: EBWKjlELKMYqRNQ6sYvFo64FtaRLRR5BdHEESmha49TM
+  client_secret: EO422dn3gQLgDbuwqTjzrFgFtaRLRR5BdHEESmha49TM
+
+  # Mode can be 'live' or 'sandbox'
+  mode: sandbox #change for 'live' for production
+
+  # Credentials for Classic APIs
+  app_id: APP-80W284485P519543T
+  username: tushis-facilitator_api1.mail.ru
+  password: 1375445439
+  signature: AFcWxV21C7fd0v3bYYYRCpSSRl31AQO9OveMy-9yQHVPO3hprcaysJs0
+  # # With Certificate
+  # cert_path: "config/cert_key.pem"
+  sandbox_email_address: tushis@mail.ru
+
+  # # IP Address
+  # ip_address: 127.0.0.1
+  # # HTTP Proxy
+  # http_proxy: http://proxy-ipaddress:3129/
+
+development:
+  <<: *default
+
+production:
+  <<: *default
+  mode: live

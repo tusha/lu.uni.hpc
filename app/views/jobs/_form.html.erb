@@ -1,0 +1,56 @@
+<%= form_for(@job) do |f| %>
+  <% if @job.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@job.errors.count, "error") %> prohibited this job from being saved:</h2>
+
+      <ul>
+      <% @job.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%=f.hidden_field :user_id, :value=>current_user.id%>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div> 
+  <div class="field">
+    <%= f.label :script%><br>
+    <%=f.select :script_id, options_for_select(@scripts)%>
+  </div>
+  <div class="field">
+    <%= f.label :tokens %><br>
+     <%if @tokens_avail != nil%>
+    <table class="table table-bordered">
+    <th>Quality</th>
+    <th>Generation num</th>
+    <th>Transformation num</th>
+    <th>Kind</th>
+    <th>Amount</th>
+    <th>Use for job</th>   
+    <%@tokens_avail.each do |t|%>
+     <tr>
+    <%=f.hidden_field :token_id, :value => t[5]%>
+    <td><%=t[0]%></td>
+    <td><%=t[1]%></td>
+    <td><%=t[2]%></td>
+    <td><%=t[3]%></td>
+    <td><%=t[4]%></td>
+    <td><%=f.number_field :token_amount, :in => 1...t[4].to_i%></td>
+    </tr>    
+    <%end%>
+    </table>   
+   
+  </div>
+  <div class="field">
+    <%= f.label :optional_params %><br>
+    <%= f.text_field :optional_params %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit job"%>
+  </div>
+   <%else%>
+     <p>No tokens available. Job submittion is impossible without tokens.<%=link_to "Get tokens", tokens_path %></p>
+    <%end%>
+<% end %>

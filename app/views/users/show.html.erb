@@ -1,0 +1,66 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Firstname:</strong>
+  <%= @user.firstname %>
+</p>
+
+<p>
+  <strong>Lastname:</strong>
+  <%= @user.lastname %>
+</p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @user.username %>
+</p>
+
+<p>
+  <strong>Kind:</strong>
+  <%= @user.kind %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <a data-toggle="modal" href="#" class="email" id="user_mail"><%= @user.email %></a>
+</p>
+
+<p>
+  <strong>Phonenumber:</strong>
+  <%= @user.phonenumber %>
+</p>
+
+<p>
+  <strong>Mobile:</strong>
+  <%= @user.mobile %>
+</p>
+
+<p>
+  <strong>Id account:</strong>
+  <%= @user.id_account %>
+</p>
+
+<p>
+  <strong>Id address:</strong>
+  <%= @user.id_address %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
+<script type="text/javascript">
+var mail;
+    $(document).ready(function(){
+    	$("#hdn_form").css("display","none");
+        $('#email_modal').modal('hide');
+        
+        $(".email").click(function(){
+        	mail=$("#user_mail").text();
+        	$("#hdn_form").css("display","block");
+        	$("#eml").val(mail);
+        	$("#eml").attr('readonly', 'true');
+        	$('#email_modal').modal('show');
+        });
+    });
+</script>
+
+<div id="hdn_form"><%=render partial: 'supports/form', :locals => {:support => @support}%></div>

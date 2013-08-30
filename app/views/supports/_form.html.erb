@@ -1,0 +1,50 @@
+<div class="modal" id="email_modal">
+<div class="modal-header">  
+<%= link_to "×", users_path, :class => "close"%>
+<h3>E-mail</h3>  
+</div>  
+<div class="modal-body">
+
+<%=form_for :support, :url => {:action=>'create', :controller=>"supports"}, :html => { :method => :post, :onsubmit => "validateForm(this);"} do |f|%>
+<p>
+<%=f.label "E-mail"%>
+</p>
+<p>
+	<%=f.text_field :email, :id=>'eml'%>
+</p>
+<p>
+	<%=f.label "Subject"%>
+</p>
+<p>
+	<%=f.text_field :sender_name, :id=>'sender'%>
+</p>
+<p>
+	<%=f.label "Content"%>
+</p>
+<p>
+	<%=f.text_area :content, :id=>'content'%>
+</p>
+<div class="modal-footer">  
+<p>
+	<%=f.submit "Send", :class => "btn btn-success"%>
+	<%= link_to "Cancel", users_path, :class => "btn"%>
+</p>
+</div>
+</div>
+</div>
+<%end%>
+<script type='text/javascript'>
+function validateForm(){
+	if($("#sender").val()=="" && $("#content").val()==""){	
+		$("#sender").val("Value cannot be empty");
+		$("#content").val("Value cannot be empty");
+	} 
+}
+</script>
+
+
+
+
+
+
+

@@ -1,0 +1,39 @@
+<%= render 'shared/profile_menu' %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @job.name %>
+</p>
+
+<p>
+  <strong>Script:</strong>
+  <%= @job.script_id %>
+</p>
+
+<p>
+  <strong>Tokens:</strong>
+  <% job_tokens=get_job_tokens(@job.id)
+    job_tokens.each do |tt|%>
+    <tr>
+    <td><%=tt[0]%></td>
+    <td><%=tt[1]%></td>
+    <td><%=tt[2]%></td>
+    <td><%=tt[3]%></td>
+    <td><%=tt[4]%></td>    
+    </tr>
+    <%end%> 
+</p>
+
+<p>
+  <strong>Optional params:</strong>
+  <%= @job.optional_params %>
+</p>
+
+<p>
+  <strong>Output:</strong>
+  <%= @job.output_id %>
+</p>
+
+<%= link_to 'Edit', edit_job_path(@job) %> |
+<%= link_to 'Back', jobs_path %>

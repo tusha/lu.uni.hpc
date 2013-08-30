@@ -1,0 +1,9 @@
+<ul class="nav nav-tabs">
+  <li>
+    <a href=<%=edit_user_path(current_user.id)%>>Personal</a>
+  </li>
+  <li><a href=<%= edit_address_path(current_user.id)%>>Address</a></li>
+  <li><a href=<%=edit_account_path(current_user.id)%>>Script</a></li>
+  <li><a href=<%=user_tokens_path%>>Current tokens</a></li>
+  <li><a href=<%=jobs_path%>>Jobs</a></li>
+</ul>

@@ -1,0 +1,22 @@
+<div class="highlight"><pre><span class="o">[</span>14:47:26<span class="o">]</span> svarrette@access ~&gt; oarsub -I
+<span class="o">[</span>ADMISSION RULE<span class="o">]</span> Set default walltime to 7200.
+<span class="o">[</span>ADMISSION RULE<span class="o">]</span> Modify resource description with <span class="nb">type </span>constraints
+Generate a job key...
+<span class="nv">OAR_JOB_ID</span><span class="o">=</span>76715
+Interactive mode : waiting...
+Starting...
+
+Connect to OAR job 76715 via the node d-cluster1-9
+Use of d-cluster1-9 :
+ 14:49:24 up 10 days, 22:27,  1 user,  load average: 3.00, 3.00, 3.00
+USER     TTY      FROM              LOGIN@   IDLE   JCPU   PCPU WHAT
+oar      pts/1    cluster1a.chaos. 14:49    0.00s  0.00s  0.00s sshd: oar <span class="o">[</span>priv<span class="o">]</span>
+
+<span class="nv">TTY</span> <span class="o">=</span> /dev/pts/1 , <span class="nv">TERM</span> <span class="o">=</span> xterm-color, no DISPLAY
+<span class="o">[</span>14:49:24<span class="o">]</span> svarrette@d-cluster1-9 ~&gt; <span class="nb">echo</span> <span class="nv">$OAR_NODEFILE</span>
+/var/lib/oar/76715
+<span class="o">[</span>14:51:03<span class="o">]</span> svarrette@d-cluster1-9 ~&gt; cat <span class="nv">$OAR_NODEFILE</span>
+d-cluster1-9.chaos.lu
+<span class="o">[</span>14:51:10<span class="o">]</span> svarrette@d-cluster1-9 ~&gt; <span class="nb">echo</span> <span class="nv">$OAR_JOB_ID</span>
+76715
+</pre></div>

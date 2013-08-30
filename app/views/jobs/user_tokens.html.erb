@@ -1,0 +1,23 @@
+<%= render 'shared/profile_menu' %>
+<h3>Current tokens</h3>
+ <%if @cur_tokens != nil%>
+    <table class="table table-bordered">
+    <th>Quality</th>
+    <th>Generation num</th>
+    <th>Transformation num</th>
+    <th>Kind</th>
+    <th>Amount</th>    
+    <% @cur_tokens.each do |t|%>
+    <tr>
+    <td><%=t[0]%></td>
+    <td><%=t[1]%></td>
+    <td><%=t[2]%></td>
+    <td><%=t[3]%></td>
+    <td><%=t[4]%></td>    
+    </tr>
+    	<%end%>
+  <%else%>   
+     <p>No available tokens.<%=link_to "Get tokens", tokens_path %></p>
+  <%end%>
+
+

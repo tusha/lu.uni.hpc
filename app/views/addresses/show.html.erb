@@ -1,0 +1,35 @@
+<%= render 'shared/profile_menu' %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @address.user_id %>
+</p>
+
+<p>
+  <strong>Street:</strong>
+  <%= @address.street %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @address.number %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @address.city %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @address.country_code %>
+</p>
+
+<p>
+  <strong>Index:</strong>
+  <%= @address.index %>
+</p>
+
+<%= link_to 'Edit', edit_address_path(@address) %> |
+

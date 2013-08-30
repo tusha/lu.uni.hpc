@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Quality:</strong>
+  <%= @token.quality %>
+</p>
+
+<p>
+  <strong>Generation num:</strong>
+  <%= @token.generation_num %>
+</p>
+
+<p>
+  <strong>Transform num:</strong>
+  <%= @token.transform_num %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @token.kind %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= number_to_currency(@token.price, :unit => "€")  %>
+</p>
+<%if can? :buy, @token%>
+ <td><%= link_to @paypal_url do %>
+  <img src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" />
+<% end %></td></br><%end%>
+<%if can? :update, @token%><%= link_to 'Edit', edit_token_path(@token) %> |<%end%>
+<%= link_to 'Back', tokens_path %>

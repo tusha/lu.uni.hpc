@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: test | HPC @ Uni.lu]]></title>
+  <link href="http://hpc.uni.lu/categories/test/atom.xml" rel="self"/>
+  <link href="http://hpc.uni.lu/"/>
+  <updated>2013-08-23T15:44:29+02:00</updated>
+  <id>http://hpc.uni.lu/</id>
+  <author>
+    <name><![CDATA[Sebastien Varrette]]></name>
+    <email><![CDATA[hpc-sysadmins@uni.lu]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Homepage]]></title>
+    <link href="http://hpc.uni.lu/home/"/>
+    <updated>2013-04-12T11:23:00+02:00</updated>
+    <id>http://hpc.uni.lu/home</id>
+    <content type="html"><![CDATA[<h3 id="welcome-to-the-hpc--unilu-platform-">Welcome to the HPC @ Uni.lu platform !</h3>
+
+<p>This is the official website of HPC @ Uni.lu platform, which regroups information about the computing clusters operated by the <a href="http://www.uni.lu">University of Luxembourg</a> and the organization around running them.</p>
+
+<p>Make sure you read these distinct collections of information:</p>
+
+<ul>
+  <li><a href="/users/fup.html">User Charter (AUP)</a></li>
+  <li>User Documentation</li>
+  <li>FAQs (Access, Directory Structure &amp; Troubleshooting) - Yes, these are the most Frequently Asked Questions!</li>
+</ul>
+
+<p>If you still have questions, send them to hpc-users_at_uni.lu (public matters) or hpc-sysadmin_at_uni.lu (private accounts etc).</p>
+
+<h3 id="latest-users-news">Latest users news</h3>
+<ul>
+  <li>In March 2013, the Global HPC initiative in Luxembourg is reactivated with the MECO and Luxinnovation on board. Hopefully, it can lead to a Center of Excellence in HPC within Luxembourg where the UL can play a major role.</li>
+  <li>In January 2013, a new low-power cluster have been aquired featuring ARM processors and Calxeda modules (2x48 nodes, ARM Cortex A9 4C, 10GbE interconnect). Preliminary benchmark results (84,68 MFlops/W) would rank it 430th in the world <a href="http://www.green500.org/">Green500</a> list</li>
+  <li>As of September 2012, modules environment is fully in production with numerous applications provided via EasyBuild (try: module avail)
+    <ul>
+      <li>For the <a href="http://leo.lippmann.lu">workshop “Luxembourg Earth Observation and Integrated Applications Day”</a>, the 16th of March 2012 in Mondorf-les-Bains, Jan Wuite presented <a href="https://hpc.uni.lu/common/docs/Poster_LEO_Wuite_FINAL.pdf">a poster on Luxembourg GPS measurements</a> for which he used the cluster.</li>
+      <li>publication “On the influence of a patterned substrate on crystallization in suspensions of hard spheres”, by Sven Dorosz and Tanja Schilling in the <a href="http://jcp.aip.org/resource/1/jcpsa6/v136/i4/p044702_s1?ver=pdfcov">Journal of  Chemical Physics</a>, january 2012.</li>
+    </ul>
+  </li>
+</ul>
+]]></content>
+  </entry>
+  
+</feed>

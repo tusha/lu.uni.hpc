@@ -1,0 +1,38 @@
+<h3>List of available tokens</h3>
+
+<table class="table table-striped table-bordered table-condensed table-hover">
+  <thead>
+    <tr>
+      <th>Quality</th>
+      <th>Number of generations</th>
+      <th>Number of transformations</th>
+      <th>Type</th>
+      <th>Price</th>     
+     <%if can? :buy, @token%> <th></th><%end%>
+     <%if can? :edit, @token %> <th></th><%end%>
+     <%if can? :destroy, @token%><th></th><%end%>    
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tokens.each do |token| %>
+      <tr>
+        <td><%= token.quality %></td>
+        <td><%= token.generation_num %></td>
+        <td><%= token.transform_num %></td>
+        <td><%= token.kind %></td>
+        <td><%= number_to_currency(token.price, :unit => "€")  %></td>
+        <td><%= link_to 'Show', token %></td>
+        <%if can? :buy, token%> <td><%=link_to 'Buy', token%></td><%end%>
+        <%if can? :edit, @token %>
+        <td><%= link_to 'Edit', edit_token_path(token) %></td><%end%>
+        <%if can? :destroy, @token%>
+        <td><%= link_to 'Delete', token, method: :delete, data: { confirm: 'Are you sure?' } %></td><%end%>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%if can? :create, @token%>
+<%= link_to 'New Token', new_token_path %><%end%>
