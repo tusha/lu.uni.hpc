@@ -106,6 +106,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'meta_request'
   gem 'capistrano'
+  gem 'capistrano-unicorn', :git => 'https://github.com/sosedoff/capistrano-unicorn.git', :branch => 'master', :require => false
 end
 
 group :test do
