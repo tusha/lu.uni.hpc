@@ -71,6 +71,11 @@ namespace :bundler do
 
 end
 
+before "deploy:assets:precompile" do
+  run ["ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"       
+  ].join(" && ")
+end
+
 after "deploy", "deploy:symlink_config_files"
 #after 'deploy:update_code', 'bundler:install'
 # if you want to clean up old releases on each deploy uncomment this:
