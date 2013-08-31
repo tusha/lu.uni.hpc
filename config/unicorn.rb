@@ -21,12 +21,12 @@ worker_processes 4
 
 # Help ensure your application will always spawn in the symlinked
 # "current" directory that Capistrano sets up.
-working_directory "/home/katja/rails_hpc/rails-starter-app" # available in 0.94.0+
+working_directory "/srv/www/jshadobf.uni.lu/public_html/current" # available in 0.94.0+
 
 # listen on both a Unix domain socket and a TCP port,
 # we use a shorter backlog for quicker failover when busy
 #listen "/path/to/.unicorn.sock", :backlog => 64
-listen 3000, :tcp_nopush => true
+listen 80, :tcp_nopush => true
 
 # nuke workers after 30 seconds instead of 60 seconds (the default)
 timeout 30
