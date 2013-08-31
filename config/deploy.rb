@@ -37,6 +37,10 @@ namespace :deploy do
   task :stop, :roles => :app do
     # Do nothing.
   end
+  
+  task :symlink_config_files do
+    run "#{ try_sudo } ln -s #{ deploy_to }/shared/config/database.yml #{ current_path }/config/database.yml"
+ end
 
   desc "Restart Application"
   task :restart, :roles => :app do
@@ -63,9 +67,7 @@ namespace :bundler do
     run "cd #{release_path} && bundle install --production"
   end
   
-task :symlink_config_files do
-    run "#{ try_sudo } ln -s #{ deploy_to }/shared/config/database.yml #{ current_path }/config/database.yml"
-end
+
 
 end
 
