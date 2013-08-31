@@ -29,8 +29,8 @@ set :default_stage, 'production'
 
 # Unicorn tasks
 require 'capistrano-unicorn'
-after 'deploy:restart', 'unicorn:reload' # app IS NOT preloaded
-after 'deploy:restart', 'unicorn:restart'  # app preloaded
+#after 'deploy:restart', 'unicorn:reload' # app IS NOT preloaded
+#after 'deploy:restart', 'unicorn:restart'  # app preloaded
 
 # tasks
 namespace :deploy do
