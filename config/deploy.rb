@@ -66,7 +66,7 @@ namespace :bundler do
 
 end
 
-after 'deploy:update_code', 'bundler:symlink_bundled_gems'
+after "deploy", "deploy:symlink_config_files"
 #after 'deploy:update_code', 'bundler:install'
 # if you want to clean up old releases on each deploy uncomment this:
 # after "deploy:restart", "deploy:cleanup"
