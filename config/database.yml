@@ -54,7 +54,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: starterapp_production
+  database: hpc_db
   pool: 5
-  username: postgres
-  password:
+  username: admin
+  password: 'HPC_175369#8'
