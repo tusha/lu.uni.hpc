@@ -1,16 +1,32 @@
+require "bundler/capistrano"
+set :rvm_ruby_string, '2.0.0'
+set :rvm_type, :user
+
+#main details
 set :application, "lu.uni.hpc"
 set :scm_username, "passenger"
 set :repository,  "https://github.com/tusha/lu.uni.hpc.git"
 set :git_enable_submodules, 1
-set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
+set :scm, :git 
 set :branch, "master"
 set :user, "localadmin"
-# Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
-#role :web, "your web-server here"                          # Your HTTP server, Apache/etc
-#role :app, "your app-server here"                          # This may be the same as your `Web` server
-#role :db,  "your primary db-server here", :primary => true # This is where Rails migrations will run
-#role :db,  "your slave db-server here"
+
+role :web, "jshadobf.uni.lu" # Your HTTP server, Apache/etc
+role :app, "jshadobf.uni.lu" # This may be the same as your `Web` server
+role :db, :primary => true # This is where Rails migrations will run
+
+#server details
+default_run_options[:pty] = true
+ssh_options[:forward_agent] = true
+ssh_options[:port] = 8022
+ssh_options[:keys] = '/home/katja/.ssh/id_rsa.pem'
+set :deploy_to, "/srv/www/jshadobf.uni.lu/public_html"
+set :deploy_via, :remote_cache
+set :user, "localadmin"
+set :use_sudo, true
+set :default_stage, 'production'
+
 
 # tasks
 namespace :deploy do
@@ -51,7 +67,7 @@ namespace :bundler do
 end
 
 after 'deploy:update_code', 'bundler:symlink_bundled_gems'
-# after 'deploy:update_code', 'bundler:install'
+#after 'deploy:update_code', 'bundler:install'
 # if you want to clean up old releases on each deploy uncomment this:
 # after "deploy:restart", "deploy:cleanup"
 
