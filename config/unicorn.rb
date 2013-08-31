@@ -21,7 +21,15 @@ worker_processes 4
 
 # Help ensure your application will always spawn in the symlinked
 # "current" directory that Capistrano sets up.
+if env == "production"
 working_directory "/srv/www/jshadobf.uni.lu/public_html/current" # available in 0.94.0+
+
+user 'localadmin'
+shared_path='/srv/www/jshadobf.uni.lu/public_html/shared'
+stderr_path='/srv/www/jshadobf.uni.lu/public_html/current/log/unicorn.stderr.log'
+stdout_path='/srv/www/jshadobf.uni.lu/public_html/current/log/unicorn.stdout.log'
+
+end
 
 # listen on both a Unix domain socket and a TCP port,
 # we use a shorter backlog for quicker failover when busy
