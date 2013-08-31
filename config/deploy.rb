@@ -62,7 +62,10 @@ namespace :bundler do
   task :install, :roles => :app do
     run "cd #{release_path} && bundle install --production"
   end
-
+  
+task :symlink_config_files do
+    run "#{ try_sudo } ln -s #{ deploy_to }/shared/config/database.yml #{ current_path }/config/database.yml"
+end
 
 end
 
